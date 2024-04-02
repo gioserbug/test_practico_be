@@ -1,14 +1,16 @@
-const express = require('express');
-const externalApi = require('./externalApi');
+const express = require("express");
+const cors = require("cors");
+const externalApi = require("./externalApi");
 const {
   standardResponseByItem,
   standardResponseAllItems,
-} = require('./standardResponse');
+} = require("./standardResponse");
 
 const app = express();
+app.use(cors());
 const PORT = 5000;
-const ENDPOINT_BASE = '/api/items';
-const MESSAGE_SERVER_ERROR = 'Internal Server Error';
+const ENDPOINT_BASE = "/api/items";
+const MESSAGE_SERVER_ERROR = "Internal Server Error";
 
 app.get(ENDPOINT_BASE, async (req, res) => {
   const query = req.query.q;
@@ -39,7 +41,7 @@ app.get(`${ENDPOINT_BASE}/:id`, async (req, res) => {
 
     const dataStandard = standardResponseByItem(
       responseItem.data,
-      responseDescription.data,
+      responseDescription.data
     );
 
     res.json(dataStandard);
