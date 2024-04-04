@@ -1,6 +1,6 @@
 const author = {
-  name: 'Sergio',
-  lastName: 'Cano',
+  name: "Sergio",
+  lastName: "Cano",
 };
 
 const standardResponseAllItems = (data) => {
@@ -12,7 +12,7 @@ const standardResponseAllItems = (data) => {
     price: {
       currency: el.currency_id,
       amount: el.price,
-      decimals: Number(el.price?.toLocaleString())
+      decimals: el.price?.toLocaleString(),
     },
     picture: el.thumbnail,
     condition: el.condition,
@@ -37,7 +37,7 @@ const standardResponseByItem = (item, description) => {
       price: {
         currency: item.currency_id,
         amount: item.price,
-        decimals: Number(item.price?.toLocaleString())
+        decimals: item.price?.toLocaleString(),
       },
       picture: item.thumbnail,
       condition: item.condition,
