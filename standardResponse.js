@@ -4,7 +4,7 @@ const author = {
 };
 
 const standardResponseAllItems = (data) => {
-  const categories = data?.filters?.[0]?.values?.map((el) => el.name);
+  const categories = data?.filters?.[0]?.values;
 
   const items = data.results?.map((el) => ({
     id: el.id,
